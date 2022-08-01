@@ -57,7 +57,6 @@ au filetype vim vnoremap gxx 0:norm xx<ESC><S-$>
 
 
 
-nnoremap gtt :call CommentToggle()<cr>
 
 function! CommentToggle()
     if &CommentToggle        
@@ -66,3 +65,5 @@ function! CommentToggle()
       au BufEnter *.py 0:norm xx<ESC><S-$>
     endif
 endfunction
+
+nnoremap gtt :call CommentToggle()<cr>
