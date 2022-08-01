@@ -69,9 +69,13 @@ function! CommentToggle() range
         0:norm xx
       endif
       
-      if &filetype ==# 'vim'
-        0:norm xx
-      endif
+      "if &filetype ==# 'vim'
+      au filetype vim 0:norm xx
+
+      0:norm xx
+      "endif
+
+      
 
     if &filetype ==# 'sql'
       0:norm xxx
@@ -86,9 +90,11 @@ function! CommentToggle() range
         0:norm i# 
       endif
       
-      if &filetype ==# 'vim'
-        0:norm i" 
-      endif
+      "if &filetype ==# 'vim'
+      au filetype vim 0:norm i"
+
+      0:norm i" 
+      "endif
       
       if &filetype ==# 'sql'
         0:norm i-- 
