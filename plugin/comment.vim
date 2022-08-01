@@ -30,7 +30,7 @@ au filetype css vnoremap gxx 0:norm xxx<ESC>:'<,'>s#*/##g<ESC>
 
 
 nnoremap gtt :call CommentToggle()<cr>
-" xnoremap gtt :'<,'> call CommentToggle()<cr>
+xnoremap gtt :'<,'> call CommentToggle()<cr>
 
 let s:enabled = 0 
 
@@ -41,7 +41,7 @@ function! CommentToggle() range
 
       if &filetype ==# 'python'
         ":norm ^xx
-         :'<,'>s/# // 
+         :s/# // 
 
       endif
       
@@ -67,7 +67,7 @@ function! CommentToggle() range
       
       if &filetype ==# 'python'
         ":norm ^i# 
-        :'<,'>s/^/# 
+        :s/^/# 
       endif
       
       if &filetype ==# 'cpp'
