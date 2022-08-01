@@ -60,7 +60,7 @@ nnoremap gtt :call CommentToggle()<cr>
 let s:enabled = 0 
 
 function! CommentToggle()
-    if &CommentToggle        
+    if s:enabled       
       au BufEnter *.py 0:norm i# <ESC><S-$>
       let s:enabled = 0 
 
