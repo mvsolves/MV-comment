@@ -56,14 +56,17 @@ au filetype vim vnoremap gxx 0:norm xx<ESC><S-$>
 
 
 
-
+nnoremap gtt :call CommentToggle()<cr>
+let s:enabled = 0 
 
 function! CommentToggle()
     if &CommentToggle        
       au BufEnter *.py 0:norm i# <ESC><S-$>
+      let s:enabled = 0 
+
     else
       au BufEnter *.py 0:norm xx<ESC><S-$>
+      let s:enabled = 1
     endif
 endfunction
 
-nnoremap gtt :call CommentToggle()<cr>
