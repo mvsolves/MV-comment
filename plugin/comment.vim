@@ -61,7 +61,7 @@ let s:enabled = 0
 
 
 
-function CommentToggle()
+function! CommentToggle() range
     if s:enabled
       let s:enabled = 0
 
