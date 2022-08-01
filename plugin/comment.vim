@@ -60,21 +60,38 @@ nnoremap gtt :call CommentToggle()<cr>
 let s:enabled = 0 
 
 
-
 function! CommentToggle() range
     if s:enabled
       let s:enabled = 0
+
+      if &filetype ==# 'python'
+        0:norm xx
+      endif
       
-      au filetype python,vim 0:norm xx
-      au filetype sql 0:norm xxx
+      if &filetype ==# 'vim'
+        0:norm xx
+      endif
+
+    if &filetype ==# 'sql'
+      0:norm xxx
+    endif
+
 
 
     else
       let s:enabled = 1
-            
-      au filetype python 0:norm i#     
-      au filetype vim 0:norm i" 
-      au filetype sql 0:norm i-- 
+      
+      if &filetype ==# 'python'
+        0:norm i# 
+      endif
+      
+      if &filetype ==# 'vim'
+        0:norm i" 
+      endif
+      
+      if &filetype ==# 'sql'
+        0:norm i-- 
+      endif
       
     endif
 endfunction
