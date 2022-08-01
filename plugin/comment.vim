@@ -64,41 +64,17 @@ let s:enabled = 0
 function! CommentToggle() range
     if s:enabled
       let s:enabled = 0
-
-      if &filetype ==# 'python'
-        0:norm xx
-      endif
       
-      "if &filetype ==# 'vim'
-      au filetype vim 0:norm xx
-
-      0:norm xx
-      "endif
-
-      
-
-    if &filetype ==# 'sql'
-      0:norm xxx
-    endif
-
+      au filetype python,vim 0:norm xx
+      au filetype sql 0:norm xxx
 
 
     else
       let s:enabled = 1
-      
-      if &filetype ==# 'python'
-        0:norm i# 
-      endif
-      
-      "if &filetype ==# 'vim'
-      au filetype vim 0:norm i"
-
-      0:norm i" 
-      "endif
-      
-      if &filetype ==# 'sql'
-        0:norm i-- 
-      endif
+            
+      au filetype python 0:norm i#     
+      au filetype vim 0:norm i" 
+      au filetype sql 0:norm i-- 
       
     endif
 endfunction
