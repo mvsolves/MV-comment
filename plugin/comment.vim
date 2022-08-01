@@ -40,7 +40,9 @@ function! CommentToggle() range
       let s:enabled = 0
 
       if &filetype ==# 'python'
-        :norm ^xx
+        ":norm ^xx
+         :'<,'>s/# // 
+
       endif
       
       if &filetype ==# 'cpp'
@@ -64,7 +66,8 @@ function! CommentToggle() range
       let s:enabled = 1
       
       if &filetype ==# 'python'
-        :norm ^i# 
+        ":norm ^i# 
+        :'<,'>s/^/# 
       endif
       
       if &filetype ==# 'cpp'
