@@ -60,17 +60,17 @@ nnoremap gtt :call CommentToggle()<cr>
 let s:enabled = 0 
 
 function! CommentToggle()
-    if s:enabled       
-      " au BufEnter *.py 0:norm xx<ESC> <S-$>
-      
-      0:norm xx
-      let s:enabled = 0 
+    if s:enabled
+      if &filetype ==# 'python'
+        0:norm xx
+        let s:enabled = 0
+      endif
 
     else
-      " au BufEnter *.py 0:norm i# <ESC> <S-$>
-    
-      0:norm i# 
-      let s:enabled = 1
+      if &filetype ==# 'python'
+        0:norm i# 
+        let s:enabled = 1
+      endif
     endif
 endfunction
 
