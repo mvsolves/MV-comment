@@ -69,7 +69,7 @@ function! CommentToggle()
     else
       " au BufEnter *.py 0:norm i# <ESC> <S-$>
     
-      0:norm i#$
+      0:norm i# 
       let s:enabled = 1
     endif
 endfunction
