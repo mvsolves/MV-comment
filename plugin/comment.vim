@@ -54,15 +54,6 @@ au filetype vim vnoremap gxx 0:norm xx<ESC><S-$>
 
 
 
-" comment block for sql
-au filetype sql nnoremap gc 0:norm i-- <ESC><S-$>
-au filetype sql nnoremap gx 0:norm xxx<ESC><S-$>
-
-au filetype sql vnoremap gcc 0:norm i-- <ESC><S-$>
-au filetype sql vnoremap gxx 0:norm xxx<ESC><S-$>
-
-
-
 
 
 nnoremap gtt :call CommentToggle()<cr>
@@ -77,6 +68,10 @@ function! CommentToggle()
       if &filetype ==# 'python'
         0:norm xx
       endif
+      
+      if &filetype ==# 'vim'
+        0:norm xx
+      endif
 
     if &filetype ==# 'sql'
       0:norm xxx
@@ -89,7 +84,11 @@ function! CommentToggle()
       
       if &filetype ==# 'python'
         0:norm i# 
-      endif    
+      endif
+      
+      if &filetype ==# 'vim'
+        0:norm i" 
+      endif
       
       if &filetype ==# 'sql'
         0:norm i-- 
