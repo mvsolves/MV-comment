@@ -65,15 +65,15 @@ function! CommentToggle() range
       let s:enabled = 0
 
       if &filetype ==# 'python'
-        0:norm xx
+        :norm ^xx
       endif
       
       if &filetype ==# 'vim'
-        0:norm xx
+        :norm ^xx
       endif
 
     if &filetype ==# 'sql'
-      0:norm xxx
+      :norm ^xxx
     endif
 
 
@@ -82,15 +82,15 @@ function! CommentToggle() range
       let s:enabled = 1
       
       if &filetype ==# 'python'
-        0:norm i# 
+        :norm ^i# 
       endif
       
       if &filetype ==# 'vim'
-        0:norm i" 
+        :norm ^i" 
       endif
       
       if &filetype ==# 'sql'
-        0:norm i-- 
+        :norm ^i-- 
       endif
       
     endif
