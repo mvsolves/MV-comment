@@ -4,12 +4,7 @@ endif
 let g:loaded_comment = 1
 
 
-" comment block for sql
-au filetype sql nnoremap gc 0:norm i-- <ESC><S-$>
-au filetype sql nnoremap gx 0:norm xxx<ESC><S-$>
 
-au filetype sql vnoremap gcc 0:norm i-- <ESC><S-$>
-au filetype sql vnoremap gxx 0:norm xxx<ESC><S-$>
 
 
 " comment block for python 
@@ -56,21 +51,50 @@ au filetype vim vnoremap gxx 0:norm xx<ESC><S-$>
 
 
 
+
+
+
+" comment block for sql
+au filetype sql nnoremap gc 0:norm i-- <ESC><S-$>
+au filetype sql nnoremap gx 0:norm xxx<ESC><S-$>
+
+au filetype sql vnoremap gcc 0:norm i-- <ESC><S-$>
+au filetype sql vnoremap gxx 0:norm xxx<ESC><S-$>
+
+
+
+
+
 nnoremap gtt :call CommentToggle()<cr>
 let s:enabled = 0 
 
+
+
 function! CommentToggle()
     if s:enabled
+      let s:enabled = 0
+
       if &filetype ==# 'python'
         0:norm xx
-        let s:enabled = 0
       endif
 
+    if &filetype ==# 'sql'
+      0:norm xxx
+    endif
+
+
+
     else
+      let s:enabled = 1
+      
       if &filetype ==# 'python'
         0:norm i# 
-        let s:enabled = 1
+      endif    
+      
+      if &filetype ==# 'sql'
+        0:norm i-- 
       endif
+      
     endif
 endfunction
 
