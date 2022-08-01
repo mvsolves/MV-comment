@@ -1,18 +1,10 @@
-"if exists("g:loaded_comment")
-"  finish
-"endif
-"let g:loaded_comment = 1
+if exists("g:loaded_comment")
+  finish
+endif
+let g:loaded_comment = 1
 
 
 
-
-
-" comment block for python 
-au filetype python nnoremap gc 0:norm i# <ESC><S-$>
-au filetype python nnoremap gx 0:norm xx<ESC><S-$>
-
-au filetype python vnoremap gcc 0:norm i# <ESC><S-$>
-au filetype python vnoremap gxx 0:norm xx<ESC><S-$>
 
 
 " comment block for html 
@@ -28,25 +20,6 @@ au filetype css nnoremap gx 0:norm xxx<ESC><S-$>vhhd<ESC>
 
 au filetype css vnoremap gcc 0:norm i/* <ESC>:'<,'>g/$/norm A */<ESC>:noh<ESC>
 au filetype css vnoremap gxx 0:norm xxx<ESC>:'<,'>s#*/##g<ESC>
-
-
-" comment block for cpp 
-au filetype cpp nnoremap gc 0:norm i// <ESC><S-$>
-au filetype cpp nnoremap gx 0:norm xxx<ESC><S-$>
-
-au filetype cpp vnoremap gcc 0:norm i// <ESC><S-$>
-au filetype cpp vnoremap gxx 0:norm xxx<ESC><S-$>
-
-
-" comment block for vim 
-au filetype vim nnoremap gc 0:norm i" <ESC><S-$>
-au filetype vim nnoremap gx 0:norm xx<ESC><S-$>
-
-au filetype vim vnoremap gcc 0:norm i" <ESC><S-$>
-au filetype vim vnoremap gxx 0:norm xx<ESC><S-$>
-
-
-
 
 
 
@@ -68,6 +41,10 @@ function! CommentToggle() range
         :norm ^xx
       endif
       
+      if &filetype ==# 'cpp'
+        :norm ^xxx
+      endif
+      
       if &filetype ==# 'vim'
         :norm ^xx
       endif
@@ -78,11 +55,18 @@ function! CommentToggle() range
 
 
 
+
+
+
     else
       let s:enabled = 1
       
       if &filetype ==# 'python'
         :norm ^i# 
+      endif
+      
+      if &filetype ==# 'cpp'
+        :norm ^i// 
       endif
       
       if &filetype ==# 'vim'
