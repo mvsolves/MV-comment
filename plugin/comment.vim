@@ -30,6 +30,8 @@ au filetype css vnoremap gxx 0:norm xxx<ESC>:'<,'>s#*/##g<ESC>
 
 
 nnoremap gtt :call CommentToggle()<cr>
+vnoremap gtt :call CommentToggle()<cr>
+
 let s:enabled = 0 
 
 
