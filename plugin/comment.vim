@@ -61,14 +61,14 @@ let s:enabled = 0
 
 function! CommentToggle()
     if s:enabled       
-      " au BufEnter *.py 0:norm i# <ESC><S-$>
-      0:norm i# <ESC><S-$>
+      " au BufEnter *.py 0:norm i# <ESC> <S-$>
+      0:norm i# <ESC> <S-$>
 
       let s:enabled = 0 
 
     else
-      " au BufEnter *.py 0:norm xx<ESC><S-$>
-      0:norm xx<ESC><S-$>
+      " au BufEnter *.py 0:norm xx<ESC> <S-$>
+      0:norm xx<ESC> <S-$>
 
       let s:enabled = 1
     endif
