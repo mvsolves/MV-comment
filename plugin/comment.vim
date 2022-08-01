@@ -49,3 +49,20 @@ au filetype vim nnoremap gx 0:norm xx<ESC><S-$>
 
 au filetype vim vnoremap gcc 0:norm i" <ESC><S-$>
 au filetype vim vnoremap gxx 0:norm xx<ESC><S-$>
+
+
+
+
+
+
+
+
+nnoremap gtt :call CommentToggle()<cr>
+
+function! CommentToggle()
+    if &CommentToggle        
+      au BufEnter *.py 0:norm i# <ESC><S-$>
+    else
+      au BufEnter *.py 0:norm xx<ESC><S-$>
+    endif
+endfunction
