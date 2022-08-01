@@ -1,3 +1,8 @@
+if exists("g:loaded_comment")
+  finish
+endif
+let g:loaded_comment = 1
+
 
 " comment block for sql
 au filetype sql nnoremap gc 0:norm i-- <ESC><S-$>
